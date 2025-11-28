@@ -4,6 +4,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+
+ARG vite_base_url
+ENV VITE_BASE_URL=${vite_base_url}
+
 RUN npm run build
 
 
