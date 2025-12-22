@@ -13,6 +13,7 @@ import openJam from "./open_jam.png";
 import playCircle from "./play_circle.png";
 import touchLong from "./touch_long.png";
 import hd from "./hd.png";
+import settings from "./settings.png";
 
 export {
   logo,
@@ -30,4 +31,5 @@ export {
   hd,
   playCircle,
   touchLong,
+  settings,
 };

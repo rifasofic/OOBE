@@ -20,6 +20,9 @@ const HIDE_SIDEBAR_ROUTES = [
   "/medical-alert-management",
   "/smart-alert-management",
   "/industrial-alert-management",
+  "/smart-building",
+  "/medical",
+  "/industrial",
 ];
 
 function App() {

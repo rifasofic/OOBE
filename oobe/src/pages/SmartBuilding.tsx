@@ -1,14 +1,23 @@
-import { Container, Image, Col } from "react-bootstrap";
+import { Container, Image, Col, Button } from "react-bootstrap";
 import "./SmartBuilding.scss";
 import CardComponent from "../components/CardComponent";
 import { falling, interactiveSpace, logo, warning } from "../assets/images";
 import { FormattedMessage } from "react-intl";
 import "./SmartAlertManagement";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 const SmartBuilding = () => {
   return (
     <Container fluid className="smartBuilding-container p-3">
+      <Col xs={2} sm={6} md="auto" className="back-button-smart">
+        <NavLink to="/demo" className="nav-link">
+          <Button className="close-icon-button text-white btn-dark">
+            <FontAwesomeIcon icon={faAngleLeft} className="text-white" />
+          </Button>
+        </NavLink>
+      </Col>
       <Image src={logo} alt="SECO Logo" fluid className="smartBuilding-logo" />
 
       <div>

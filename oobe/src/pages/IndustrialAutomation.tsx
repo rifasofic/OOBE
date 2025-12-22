@@ -1,13 +1,23 @@
-import { Container, Image, Col } from "react-bootstrap";
+import { Container, Image, Col, Button } from "react-bootstrap";
 import "./IndustrialAutomation.scss";
 import CardComponent from "../components/CardComponent";
 import { logo, settingsEthernet, warehouse, warning } from "../assets/images";
 import { FormattedMessage } from "react-intl";
 import { NavLink } from "react-router-dom";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const IndustrialAutomation = () => {
   return (
     <Container fluid className="industrial-container p-3">
+      <Col xs={2} sm={6} md="auto" className="back-button-industrial">
+        <NavLink to="/demo" className="nav-link">
+          <Button className="close-icon-button text-white btn-dark">
+            <FontAwesomeIcon icon={faAngleLeft} className="text-white" />
+          </Button>
+        </NavLink>
+      </Col>
+
       <Image src={logo} alt="SECO Logo" fluid className="industrial-logo" />
 
       <div>

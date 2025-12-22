@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Dropdown } from "react-bootstrap";
 import "./Dashboard.scss";
 import { FormattedMessage } from "react-intl";
 import SystemResourceUsage from "../components/SystemResourceUsage";
@@ -7,8 +7,10 @@ import LogCard, { type UsageLogEntry } from "../components/LogCard";
 import DeviceDetailsCard from "../components/DeviceDetails";
 import type { APIClient, DashboardUpdate } from "../api/APIClient";
 import CardComponent from "../components/CardComponent";
-import { corporateFare, factory, vitalSigns } from "../assets/images";
+import { corporateFare, factory, settings, vitalSigns } from "../assets/images";
 import { NavLink } from "react-router-dom";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface DashboardProps {
   apiClient: APIClient;
@@ -83,7 +85,7 @@ const Dashboard = ({ apiClient }: DashboardProps) => {
       fluid
       className="dashboard-container min-vh-100 d-flex flex-column p-3"
     >
-      <Row className="justify-content-center mb-4">
+      <Row className="mb-4 position-relative">
         <Col xs={12} className="d-flex flex-column align-items-center">
           <div className="clock-container">{time}</div>
           <h2 className="dashboard-title fw-bold text-center mt-2">
@@ -93,6 +95,27 @@ const Dashboard = ({ apiClient }: DashboardProps) => {
             />
           </h2>
         </Col>
+
+        <div className="settings-top-right">
+          <Dropdown className="menu" align="end">
+            <Dropdown.Toggle as="button" className="icon-button">
+              <img src={settings} alt="Settings" className="icon-img" />
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className="settings-dropdown">
+              <Dropdown.Item className="dropdown-item-custom exit-item">
+                <FormattedMessage
+                  id="components.Sidebar.exit"
+                  defaultMessage="Exit"
+                />
+                <FontAwesomeIcon
+                  icon={faArrowRightFromBracket}
+                  className="text-white"
+                />
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </Row>
 
       <Card className="dashboard-main-card">

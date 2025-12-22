@@ -47,6 +47,9 @@
   "components.Sidebar.demo": {
     "defaultMessage": "Demo App"
   },
+  "components.Sidebar.exit": {
+    "defaultMessage": "Exit"
+  },
   "components.Sidebar.tool": {
     "defaultMessage": "Testing tool"
   },
