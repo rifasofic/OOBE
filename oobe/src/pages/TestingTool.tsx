@@ -3,6 +3,7 @@ import "./TestingTool.scss";
 import CardComponent from "../components/CardComponent";
 import { gradient, hd, playCircle, touchLong, openJam } from "../assets/images";
 import { FormattedMessage } from "react-intl";
+import { NavLink } from "react-router-dom";
 
 const TestingTool = () => {
   return (
@@ -38,15 +39,17 @@ const TestingTool = () => {
           }
         />
 
-        <CardComponent
-          icon={playCircle}
-          title={
-            <FormattedMessage
-              id="pages.TestingTool.videoPlayer"
-              defaultMessage="Video player"
-            />
-          }
-        />
+        <NavLink to="/video-player" className="nav-link">
+          <CardComponent
+            icon={playCircle}
+            title={
+              <FormattedMessage
+                id="pages.TestingTool.videoPlayer"
+                defaultMessage="Video player"
+              />
+            }
+          />
+        </NavLink>
 
         <CardComponent
           icon={touchLong}

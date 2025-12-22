@@ -14,6 +14,7 @@ import SmartAlertManagement from "./pages/SmartAlertManagement";
 import MedicalAlertManagement from "./pages/MedicalAlertManagement";
 import IndustrialAlertManagement from "./pages/IndustrialAlertManagement";
 import { useLocation } from "react-router-dom";
+import VideoPlayerTestTool from "./pages/VideoPlayerTestTool";
 
 const HIDE_SIDEBAR_ROUTES = [
   "/medical-alert-management",
@@ -56,6 +57,7 @@ function App() {
               path="industrial-alert-management"
               element={<IndustrialAlertManagement apiClient={apiClient} />}
             />
+            <Route path="/video-player" element={<VideoPlayerTestTool />} />
             <Route
               path="/hub"
               element={
