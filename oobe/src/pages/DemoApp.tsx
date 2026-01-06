@@ -4,14 +4,38 @@ import "./DemoApp.scss";
 import CardComponent from "../components/CardComponent";
 import { corporateFare, factory, vitalSigns } from "../assets/images";
 import { FormattedMessage } from "react-intl";
+import { useEffect, useState } from "react";
 
 const DemoApp = () => {
-  return (
-    <Container fluid className="demo-container p-3">
-      <h1 className="demo-title">
-        <FormattedMessage id="pages.DemoApp.title" defaultMessage="Demo Apps" />
-      </h1>
+  const [time, setTime] = useState("");
 
+  const updateTime = () => {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    setTime(`${hours}:${minutes}`);
+  };
+
+  useEffect(() => {
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Container
+      fluid
+      className="demo-container min-vh-100 d-flex flex-column p-3"
+    >
+      <Col xs={12} className="d-flex flex-column align-items-center ">
+        <div className="clock-container">{time}</div>
+        <h2 className="demo-title fw-bold text-center mt-2">
+          <FormattedMessage
+            id="pages.DemoApp.title"
+            defaultMessage="Demo Apps"
+          />
+        </h2>
+      </Col>
       <div className="cards-wrapper">
         <Col>
           <NavLink to="/smart-building" className="nav-link">
